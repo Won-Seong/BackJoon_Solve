@@ -1,73 +1,60 @@
 //#include <iostream>
 //#include <vector>
-//#include <string>
-//#include <set>
+//#include <algorithm>
 //
 //using namespace std;
+//using Matrix = vector<vector<int>>;
+//using Vector = vector<int>;
 //
-//static void Utility(vector<bool>& visited, std::vector<int>& ans, const int& n, const int& m, vector< vector< int > >& mat) {
-//
-//    if (ans.size() >= m) {
-//        mat.push_back(ans);
-//        visited[ans.back()] = false;
-//        ans.pop_back();
-//        return;
-//    }
-//
-//    for (int i = 1; i <= n; i++) {
-//
-//        if (visited[i]) continue;
-//        else {
-//            visited[i] = true;
-//            ans.push_back(i);
-//            Utility(visited, ans, n, m, mat);
+//void PrintMat(const Matrix& mat) {
+//    for (const auto& row : mat) {
+//        for (const auto& elem : row) {
+//            cout << elem << ' ';
 //        }
-//
+//        cout << endl;
 //    }
-//
-//    if (!ans.empty()) {
-//        visited[ans.back()] = false;
-//        ans.pop_back();
-//    }
-//    return;
-//
 //}
-//
-//static void Perm(const int& n, const int& m, vector< vector<int> >& mat) {
-//
-//    std::vector<int> ans;
-//    int depth = 0;
-//    std::vector<bool> visited(n + 1, false);
-//    Utility(visited, ans, n, m, mat);
-//
-//}
-//
 //
 //int main() {
+//    int N, M, K, T;
+//    cin >> N >> M >> K >> T;
 //
-//    vector< vector< int > > mat;
-//    
-//    int N;
-//    std::cin >> N;
+//    Vector vec(N, 0);
+//    int l, r;
 //
-//    std::string str(std::to_string(N));
-//    Perm(str.size(), str.size(), mat);
-//    set<int> ans_set;
-//
-//    for (const auto& itr : mat) {
-//        std::string temp{ std::string() };
-//        for (const auto& itr_2 : itr) temp += str[itr_2 - 1];
-//        ans_set.insert(std::stoi(temp));
+//    for (int i = 0; i < M; i++) {
+//        cin >> l >> r;
+//        l--, r--;
+//        while (l < r) vec[l++]++;
 //    }
-//    
-//    for (const auto& itr : ans_set) {
 //
-//        if (itr > N) {
-//            std::cout << itr << std::endl;
-//            break;
+//    Matrix dp(K + 1, Vector(N, 0));
+//
+//    for (int k = 0; k <= K; k++) {
+//        if (k + vec[0] >= T) dp[k][0] = 1;
+//    }
+//
+//    for (int i = 1; i < N; i++) {
+//        for (int k = K; k >= 0; k--) {
+//            for (int j = K; j >= 0; j--) {
+//                int friends = vec[i] >= T ? 0 : j;
+//                if (friends + vec[i] >= T) {
+//                    dp[k][i] = max(dp[k][i], dp[j][i - 1] + 1);
+//                }
+//                else {
+//                    dp[k][i] = max(dp[k][i], dp[j][i - 1]);
+//                }
+//            }
 //        }
-//
 //    }
 //
+//    PrintMat(dp);
+//    int ans = 0;
+//    for (int k = 0; k <= K; k++) {
+//        ans = max(ans, dp[k][N - 1]);
+//    }
 //
+//    cout << ans;
+//
+//    return 0;
 //}

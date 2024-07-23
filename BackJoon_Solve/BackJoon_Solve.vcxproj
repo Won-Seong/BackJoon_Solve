@@ -129,10 +129,13 @@
   <ItemGroup>
     <ClCompile Include="1015.cpp" />
     <ClCompile Include="1027.cpp" />
+    <ClCompile Include="11505.cpp" />
     <ClCompile Include="1274.cpp" />
+    <ClCompile Include="1300.cpp" />
     <ClCompile Include="15486.cpp" />
     <ClCompile Include="1761.cpp" />
     <ClCompile Include="2243.cpp" />
+    <ClCompile Include="2251.cpp" />
     <ClCompile Include="2559.cpp" />
     <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="playground.cpp" />
