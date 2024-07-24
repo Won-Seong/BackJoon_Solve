@@ -3,45 +3,40 @@
 //#include <cmath>
 //
 //using namespace std;
-//using Vector = vector<unsigned long long>;
-//unsigned long long MOD = 1000000007;
+//using Pair = pair< unsigned long, size_t >;
+//using Vector = vector< Pair >;
 //
 //struct IndexTree {
 //
-//	void UpdateElement(size_t idx, unsigned long long val) {
+//	void UpdateElement(size_t idx, Pair val) {
 //
-//		idx = get_leaf_start() + idx;
+//		idx = get_leaf_start() + idx - 1;
 //		tree_[idx] = val;
 //		while (idx != get_root()) {
 //
 //			idx = parent(idx);
-//			tree_[idx] = tree_[left(idx)] * tree_[right(idx)] % MOD;
+//			tree_[idx] = min(tree_[left(idx)], tree_[right(idx)]);
 //
 //		}
-//
-//		tree_[idx] = tree_[left(idx)] * tree_[right(idx)] % MOD;
-//		
+//		tree_[idx] = min(tree_[left(idx)], tree_[right(idx)]);
 //	}
 //
-//	unsigned long long Product(size_t l, size_t r) {
+//	Pair Find(size_t l, size_t r) {
 //
 //		l = get_leaf_start() + l - 1;
 //		r = get_leaf_start() + r - 1;
 //
-//		unsigned long long prod = 1;
+//		Pair res{ make_pair( static_cast<unsigned long>(pow(10, 9) + 1), 0) };
 //
 //		while (l <= r) {
-//			if ((l % 2) == 1) prod *= tree_[l];
-//			prod %= MOD;
-//			if ((r % 2) == 0) prod *= tree_[r];
-//			prod %= MOD;
-//
+//			if ((l % 2) == 1) res = res > tree_[l] ? tree_[l] : res;
+//			if ((r % 2) == 0) res = res > tree_[r] ? tree_[r] : res;
+//			
 //			l = (l + 1) / 2;
 //			r = (r - 1) / 2;
-//			
 //		}
 //
-//		return prod;
+//		return res;
 //
 //	}
 //
@@ -51,15 +46,16 @@
 //		UpdateTreeUtility(idx);
 //
 //	}
-//	unsigned long long UpdateTreeUtility(size_t idx) {
+//	Pair UpdateTreeUtility(size_t idx) {
+//		
 //		if (is_leaf(idx)) return tree_[idx];
-//		else return tree_[idx] = UpdateTreeUtility(left(idx)) * UpdateTreeUtility(right(idx)) % MOD;
+//		else  return tree_[idx] = min(UpdateTreeUtility(left(idx)), UpdateTreeUtility(right(idx)));
 //
 //	}
 //
 //	void CreateTree(const Vector& vec) {
 //
-//		Vector::const_iterator c_iter = vec.cbegin();
+//		Vector::const_iterator c_iter = vec.cbegin() + 1;
 //		Vector::iterator c_iter_tree = tree_.begin() + get_leaf_start();
 //
 //		while (c_iter_tree != tree_.end() && c_iter != vec.end()) {
@@ -70,15 +66,15 @@
 //	}
 //public:
 //	IndexTree(const Vector& vec) {
-//		
+//
 //		size_ = static_cast<size_t>(pow(2, ceil(log2(vec.size()))));
 //		capacity_ = size_ * 2;
-//		tree_.resize(capacity_, 1);
+//		tree_.resize(capacity_, make_pair(static_cast<unsigned long>(pow(10, 9) + 1), 0) );
 //
 //		CreateTree(vec);
 //
 //	}
-//	void PrintTree() const { for (const auto& itr : tree_) cout << itr << ' '; cout << endl; }
+//	void PrintTree() const { for (const auto& itr : tree_) cout << itr.first << ' '; cout << endl; }
 //public:
 //	size_t get_root() const { return 1; }
 //	size_t get_leaf_start() const { return size_; }
@@ -89,39 +85,45 @@
 //public:
 //	Vector tree_;
 //	size_t size_;
-//	size_t capacity_;
+//	size_t capacity_; 
 //};
 //
 //int main() {
-//
 //	ios::sync_with_stdio(false);
 //	cin.tie(NULL);
 //
-//	int N, M, K;
-//	cin >> N >> M >> K;
+//	int N;
+//	cin >> N;
 //
-//	Vector vec(N);
-//	for (auto& itr : vec) cin >> itr;
+//	Vector vec(N + 1);
+//	for (size_t i = 1; i <= N; i++) {
+//		cin >> vec[i].first;
+//		vec[i].second = i;
+//	}
 //
 //	IndexTree tree(vec);
 //	//tree.PrintTree();
 //	tree.UpdateTree();
 //	//tree.PrintTree();
 //
-//	unsigned long long a, b, c;
+//	int M;
+//	cin >> M;
 //
-//	for (size_t i = 0; i < M + K; i++) {
+//	unsigned long a, b, c;
+//
+//	for (size_t i = 0; i < M; i++) {
 //
 //		cin >> a >> b >> c;
 //
 //		if (a == 1) {
 //
-//			tree.UpdateElement(b - 1, c);
+//			tree.UpdateElement(b , make_pair(c, b) );
 //			//tree.PrintTree();
 //		}
 //		else {
-//
-//			cout << tree.Product(b, c) << '\n';
+//			Pair temp = tree.Find(b, c);
+//			cout << temp.second << '\n';
+//			//cout << temp.first << ' ' << temp.second << '\n';
 //
 //		}
 //
