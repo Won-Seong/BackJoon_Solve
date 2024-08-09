@@ -134,6 +134,7 @@
     <ClCompile Include="1086.cpp" />
     <ClCompile Include="11401.cpp" />
     <ClCompile Include="11505.cpp" />
+    <ClCompile Include="1167.cpp" />
     <ClCompile Include="1274.cpp" />
     <ClCompile Include="12851.cpp" />
     <ClCompile Include="1300.cpp" />
@@ -143,12 +144,15 @@
     <ClCompile Include="14428.cpp" />
     <ClCompile Include="14940.cpp" />
     <ClCompile Include="15486.cpp" />
+    <ClCompile Include="15663.cpp" />
     <ClCompile Include="1697.cpp" />
     <ClCompile Include="1761.cpp" />
+    <ClCompile Include="1967.cpp" />
     <ClCompile Include="2098.cpp" />
     <ClCompile Include="2243.cpp" />
     <ClCompile Include="2251.cpp" />
     <ClCompile Include="2559.cpp" />
+    <ClCompile Include="7576.cpp" />
     <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="playground.cpp" />
   </ItemGroup>
