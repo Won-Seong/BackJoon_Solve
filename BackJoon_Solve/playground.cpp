@@ -1,30 +1,16 @@
 //#include <iostream>
-//#include <vector>
+//#include <string>
 //
 //using namespace std;
 //
 //int main() {
 //
-//	unsigned int N;
-//	cin >> N;
+//	int a, b, c;
+//	cin >> a >> b >> c;
 //
-//	vector<unsigned int> vec(6);
-//	for (auto& itr : vec) cin >> itr;
 //	
-//	unsigned int T, P;
-//	cin >> T >> P;
 //
-//	unsigned int T_max{ 0 };
-//
-//	for (const auto& itr : vec) {
-//
-//		T_max += (itr / T);
-//		T_max = itr % T != 0 ? T_max + 1 : T_max;
-//
-//	}
-//
-//	cout << T_max << '\n';
-//
-//	cout << N / P << ' ' << N % P << '\n';
+//	cout << a + b - c << '\n';
+//	cout << stoi(to_string(a) + to_string(b)) - c << endl;
 //
 //}
