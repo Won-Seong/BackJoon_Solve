@@ -134,10 +134,13 @@
     <ClCompile Include="10811.cpp" />
     <ClCompile Include="1086.cpp" />
     <ClCompile Include="10986.cpp" />
+    <ClCompile Include="11066.cpp" />
     <ClCompile Include="11401.cpp" />
+    <ClCompile Include="11403.cpp" />
     <ClCompile Include="11444.cpp" />
     <ClCompile Include="11505.cpp" />
     <ClCompile Include="1167.cpp" />
+    <ClCompile Include="11779.cpp" />
     <ClCompile Include="1202.cpp" />
     <ClCompile Include="12100.cpp" />
     <ClCompile Include="1274.cpp" />
@@ -148,7 +151,9 @@
     <ClCompile Include="13549.cpp" />
     <ClCompile Include="13977.cpp" />
     <ClCompile Include="14428.cpp" />
+    <ClCompile Include="14500.cpp" />
     <ClCompile Include="14940.cpp" />
+    <ClCompile Include="1509.cpp" />
     <ClCompile Include="1520.cpp" />
     <ClCompile Include="15486.cpp" />
     <ClCompile Include="1562.cpp" />
@@ -157,7 +162,9 @@
     <ClCompile Include="17299.cpp" />
     <ClCompile Include="1761.cpp" />
     <ClCompile Include="1806.cpp" />
+    <ClCompile Include="18110.cpp" />
     <ClCompile Include="1865.cpp" />
+    <ClCompile Include="1916.cpp" />
     <ClCompile Include="1967.cpp" />
     <ClCompile Include="2098.cpp" />
     <ClCompile Include="2150.cpp" />
@@ -167,8 +174,10 @@
     <ClCompile Include="2251.cpp" />
     <ClCompile Include="2559.cpp" />
     <ClCompile Include="2629.cpp" />
+    <ClCompile Include="28702.cpp" />
     <ClCompile Include="6549.cpp" />
     <ClCompile Include="7576.cpp" />
+    <ClCompile Include="7662.cpp" />
     <ClCompile Include="9328.cpp" />
     <ClCompile Include="9466.cpp" />
     <ClCompile Include="BinarySearch.cpp" />
